@@ -16,13 +16,17 @@ const sampleDataForPhotoListItem = {
 
 const PhotoListItem = (props) => {
   return (
-  <div key={props.sampleDataForPhotoListItem.id}>
-    {props.sampleDataForPhotoListItem.username}
-    {props.sampleDataForPhotoListItem.imageSource}
-    {props.sampleDataForPhotoListItem.location.city}
-    {props.sampleDataForPhotoListItem.location.country}
-    {props.sampleDataForPhotoListItem.profile}
-  </div>
+  <>
+    <div key={props.sampleDataForPhotoListItem.id} className='photo-list__item'>
+      <img src={props.sampleDataForPhotoListItem.imageSource} alt="Photo" className='photo-list__image'/>
+      <img src={props.sampleDataForPhotoListItem.profile} alt="Profile Photo" className='photo-list__user-profile' />
+      <span className='userName'>{props.sampleDataForPhotoListItem.username}</span>
+      <span className='location'>
+        {props.sampleDataForPhotoListItem.location.city}
+        {props.sampleDataForPhotoListItem.location.country}
+      </span>
+    </div>
+  </>
   );
 };
 

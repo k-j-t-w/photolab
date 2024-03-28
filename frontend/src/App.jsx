@@ -19,7 +19,6 @@ const App = () => {
 
   return (
     <div className="App">
-      {JSON.stringify(process.env)}
       <PhotoListItem sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>
     </div>
   );

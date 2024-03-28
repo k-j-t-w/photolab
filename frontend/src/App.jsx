@@ -4,8 +4,8 @@ import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
 import PhotoList from 'components/PhotoList';
 
-const sampleDataForPhotoListItem = [
-  {
+const sampleDataForPhotoListItem = 
+ [ {
   id: "1",
   location: {
     city: "Montreal",
@@ -41,7 +41,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <PhotoList sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>
+      {sampleDataForPhotoListItem.map((photo, index) => 
+        <PhotoListItem key={index} photo={photo} imageSource={photo.imageSource} />
+      )}
     </div>
   );
 };

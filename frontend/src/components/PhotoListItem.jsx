@@ -14,8 +14,16 @@ const sampleDataForPhotoListItem = {
   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 };
 
-const PhotoListItem = () => {
-  /* Insert React */
+const PhotoListItem = (props) => {
+  return (
+  <div key={props.sampleDataForPhotoListItem.id}>
+    {props.sampleDataForPhotoListItem.username}
+    {props.sampleDataForPhotoListItem.imageSource}
+    {props.sampleDataForPhotoListItem.location.city}
+    {props.sampleDataForPhotoListItem.location.country}
+    {props.sampleDataForPhotoListItem.profile}
+  </div>
+  );
 };
 
 export default PhotoListItem;

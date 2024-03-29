@@ -3,11 +3,11 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-const PhotoList = ({photos, addToFavArr, openModal, setCurrentPhoto, favArr, removeFromFavArr}) => {
+const PhotoList = ({photos, openModal, setCurrentPhoto, favArr, toggleFav}) => {
   return (
     <ul className="photo-list">
       {photos.map((photo) => (
-        <PhotoListItem key={photo.id} photo={photo} addToFavArr={addToFavArr} openModal={openModal} setCurrentPhoto={setCurrentPhoto} favArr={favArr} removeFromFavArr={removeFromFavArr}/>
+        <PhotoListItem key={photo.id} photo={photo} openModal={openModal} setCurrentPhoto={setCurrentPhoto} favArr={favArr} toggleFav={toggleFav}/>
       ))}
     </ul>
   );

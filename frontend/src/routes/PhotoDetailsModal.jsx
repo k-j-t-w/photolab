@@ -4,7 +4,7 @@ import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
-const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, addToFavArr, removeFromFavArr}) => {
+const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, toggleFav}) => {
   let currentPhotoData = '';
   if (currentPhoto) {
    currentPhotoData = photos.find(photo => photo.id === currentPhoto)
@@ -28,7 +28,7 @@ const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, addToFavAr
             </div>
           </div>
           <div className='photo-details-modal__header'>Similar Photos</div>
-        <PhotoList photos={similarPhotos} addToFavArr={addToFavArr} removeFromFavArr={removeFromFavArr} favArr={favArr}/>
+        <PhotoList photos={similarPhotos} toggleFav={toggleFav} favArr={favArr}/>
       </div>
     </div>
   )

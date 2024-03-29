@@ -3,9 +3,9 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({addToFavArr, photo, favArr, removeFromFavArr}) {
+function PhotoFavButton({photo, favArr, toggleFav}) {
   const clickHandler = () => { 
-    favArr.includes(photo.id) ? removeFromFavArr(photo.id) : addToFavArr(photo.id);
+    toggleFav(photo.id);
   }
 
   return (

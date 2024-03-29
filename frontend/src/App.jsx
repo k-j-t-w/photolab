@@ -14,7 +14,14 @@ const App = () => {
   };
   const removeFromFavArr = (id) => {
     setFavArr((prevFavArr) => prevFavArr.filter((FavId) => FavId !== id));
-  }
+  };
+  const toggleFav = (id) => {
+    if (favArr.includes(id)) {
+      removeFromFavArr(id);
+    } else {
+      addToFavArr(id);
+    }
+  };
   const openModal = () => {
     setDisplayModal(true)
   };
@@ -25,8 +32,8 @@ const App = () => {
   return (
     <div className="App">
       favArr: {favArr}
-      <HomeRoute photos={photos} topics={topics} favArr={favArr} openModal={openModal} setCurrentPhoto={setCurrentPhoto} addToFavArr={addToFavArr} removeFromFavArr={removeFromFavArr}/>
-      {displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={currentPhoto} photos={photos} addToFavArr={addToFavArr} removeFromFavArr={removeFromFavArr} favArr={favArr}/>}
+      <HomeRoute photos={photos} topics={topics} favArr={favArr} openModal={openModal} setCurrentPhoto={setCurrentPhoto} toggleFav={toggleFav}/>
+      {displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={currentPhoto} photos={photos} toggleFav={toggleFav} favArr={favArr}/>}
     </div>
   );
 };

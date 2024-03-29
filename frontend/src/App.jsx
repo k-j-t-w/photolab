@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import './App.scss';
-import HomeRoute from 'components/HomeRoute';
+import HomeRoute from 'routes/HomeRoute';
 import photos from "./mocks/photos.js"
 import topics from "./mocks/topics.js"
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 const App = () => {
   const [totalFav, setTotalFav] = useState(0);
+  const [modalCheck, setModalCheck] = useState(false)
+  const toggleModal = () => {
+    setModalCheck((prevModalCheck) => !prevModalCheck)
+  }
   
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav}/>
+      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav} toggleModal={toggleModal}/>
+      {modalCheck && <PhotoDetailsModal/>}
     </div>
   );
 };

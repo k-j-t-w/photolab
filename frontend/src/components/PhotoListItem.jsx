@@ -4,10 +4,10 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = ({photo, setTotalFav}) => {
+const PhotoListItem = ({photo, setTotalFav, toggleModal}) => {
   return (
     <>
-        <div className='photo-list__item'>
+        <div className='photo-list__item' onClick={toggleModal}>
           <PhotoFavButton setTotalFav={setTotalFav}/>
           <img src={photo.urls.regular} alt="Photo" className='photo-list__image'/>
           <div className='photo-list__user-details'>

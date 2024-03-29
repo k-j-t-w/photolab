@@ -6,20 +6,27 @@ import topics from "./mocks/topics.js"
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 const App = () => {
-  const [totalFav, setTotalFav] = useState(0);
-  const [displayModal, setDisplayModal] = useState(false)
-  const [currentPhoto, setCurrentPhoto] = useState(null)
+  const [favArr, setFavArr] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState(null);
+  const addToFavArr = (id) => {
+    setFavArr((prevFav) => [...prevFav, id]);
+  };
+  const removeFromFavArr = (id) => {
+    setFavArr((prevFavArr) => prevFavArr.filter((FavId) => FavId !== id));
+  }
   const openModal = () => {
     setDisplayModal(true)
-  }
+  };
   const closeModal = () => {
     setDisplayModal(false)
-  }
+  };
   
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav} openModal={openModal} setCurrentPhoto={setCurrentPhoto}/>
-      {displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={currentPhoto} photos={photos} setTotalFav={setTotalFav}/>}
+      favArr: {favArr}
+      <HomeRoute photos={photos} topics={topics} favArr={favArr} openModal={openModal} setCurrentPhoto={setCurrentPhoto} addToFavArr={addToFavArr} removeFromFavArr={removeFromFavArr}/>
+      {displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={currentPhoto} photos={photos} addToFavArr={addToFavArr} removeFromFavArr={removeFromFavArr} favArr={favArr}/>}
     </div>
   );
 };

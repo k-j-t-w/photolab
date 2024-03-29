@@ -4,7 +4,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = ({photo, setTotalFav, openModal, setCurrentPhoto}) => {
+const PhotoListItem = ({photo, addToFavArr, openModal, setCurrentPhoto, favArr, removeFromFavArr}) => {
   const handleClick = () => {
     openModal();
     setCurrentPhoto(photo.id);
@@ -12,7 +12,7 @@ const PhotoListItem = ({photo, setTotalFav, openModal, setCurrentPhoto}) => {
   return (
     <>
         <div className='photo-list__item' >
-          <PhotoFavButton setTotalFav={setTotalFav}/>
+          <PhotoFavButton addToFavArr={addToFavArr} photo={photo} favArr={favArr} removeFromFavArr={removeFromFavArr}/>
           <img src={photo.urls.regular} alt="Photo" className='photo-list__image' onClick={handleClick}/>
           <div className='photo-list__user-details'>
             <img src={photo.user.profile} alt="Profile Photo" className='photo-list__user-profile' />

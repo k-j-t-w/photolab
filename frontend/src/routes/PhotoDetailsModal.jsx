@@ -9,15 +9,14 @@ const PhotoDetailsModal = ({closeModal, currentPhoto, photos}) => {
   if (currentPhoto) {
    currentPhotoData = photos.find(photo => photo.id === currentPhoto)
   };
-  const similarPhotos = Object.keys(currentPhotoData.similar_photos).map((key) => currentPhotoData.similar_photos[key]);
-  console.log(similarPhotos);
+  const similarPhotos = Object.values(currentPhotoData.similar_photos);
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={closeModal}>
       <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className='photo-details-modal__images'>
-      <img src={currentPhotoData.urls.full} alt="Photo" className='photo-details-modal__image'/>
+      <img src={currentPhotoData.urls.full} alt="Large Modal Photo" className='photo-details-modal__image'/>
           <div className='photo-list__user-details'>
             <img src={currentPhotoData.user.profile} alt="Profile Photo" className='photo-list__user-profile' />
             <div className='photo-list__user-info'>

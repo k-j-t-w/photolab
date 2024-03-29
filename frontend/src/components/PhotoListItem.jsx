@@ -4,10 +4,14 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = ({photo, setTotalFav, openModal}) => {
+const PhotoListItem = ({photo, setTotalFav, openModal, setCurrentPhoto}) => {
+  const handleClick = () => {
+    openModal();
+    setCurrentPhoto(photo.id);
+  }
   return (
     <>
-        <div className='photo-list__item' onClick={openModal}>
+        <div className='photo-list__item' onClick={handleClick}>
           <PhotoFavButton setTotalFav={setTotalFav}/>
           <img src={photo.urls.regular} alt="Photo" className='photo-list__image'/>
           <div className='photo-list__user-details'>

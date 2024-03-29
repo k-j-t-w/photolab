@@ -8,6 +8,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
   const [totalFav, setTotalFav] = useState(0);
   const [displayModal, setDisplayModal] = useState(false)
+  const [currentPhoto, setCurrentPhoto] = useState(null)
   const openModal = () => {
     setDisplayModal(true)
   }
@@ -17,8 +18,8 @@ const App = () => {
   
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav} openModal={openModal}/>
-      {displayModal && <PhotoDetailsModal closeModal={closeModal}/>}
+      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav} openModal={openModal} setCurrentPhoto={setCurrentPhoto}/>
+      {displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={currentPhoto} photos={photos}/>}
     </div>
   );
 };

@@ -2,15 +2,35 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({closeModal, currentPhoto, photos}) => {
-  const currentPhotoData = photos.find(photo => photo.id === currentPhoto)
-  console.log(currentPhotoData);
+  let currentPhotoData = '';
+  if (currentPhoto) {
+   currentPhotoData = photos.find(photo => photo.id === currentPhoto)
+  };
+  const similarPhotos = Object.keys(currentPhotoData.similar_photos).map((key) => currentPhotoData.similar_photos[key]);
+  console.log(similarPhotos);
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={closeModal}>
-        <img src={closeSymbol} alt="close symbol" />
+      <img src={closeSymbol} alt="close symbol" />
       </button>
+      <div className='photo-details-modal__images'>
+      <img src={currentPhotoData.urls.full} alt="Photo" className='photo-details-modal__image'/>
+          <div className='photo-list__user-details'>
+            <img src={currentPhotoData.user.profile} alt="Profile Photo" className='photo-list__user-profile' />
+            <div className='photo-list__user-info'>
+              {currentPhotoData.user.username}
+              <div className='photo-list__user-location'>
+                {currentPhotoData.location.city},
+                {currentPhotoData.location.country}
+              </div>
+            </div>
+          </div>
+          <div className='photo-details-modal__header'>Similar Photos</div>
+        <PhotoList photos={similarPhotos}/>
+      </div>
     </div>
   )
 };

@@ -11,9 +11,9 @@ const PhotoListItem = ({photo, setTotalFav, openModal, setCurrentPhoto}) => {
   }
   return (
     <>
-        <div className='photo-list__item' onClick={handleClick}>
+        <div className='photo-list__item' >
           <PhotoFavButton setTotalFav={setTotalFav}/>
-          <img src={photo.urls.regular} alt="Photo" className='photo-list__image'/>
+          <img src={photo.urls.regular} alt="Photo" className='photo-list__image' onClick={handleClick}/>
           <div className='photo-list__user-details'>
             <img src={photo.user.profile} alt="Profile Photo" className='photo-list__user-profile' />
             <div className='photo-list__user-info'>

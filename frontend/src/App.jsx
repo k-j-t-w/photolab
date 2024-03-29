@@ -5,7 +5,7 @@ import photos from "./mocks/photos.js"
 import topics from "./mocks/topics.js"
 
 const App = () => {
-  const [totalFav, setTotalFav] = useState(0)
+  const [totalFav, setTotalFav] = useState(0);
   
   return (
     <div className="App">

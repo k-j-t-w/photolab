@@ -8,7 +8,7 @@ const HomeRoute = ({photos, topics, totalFav, setTotalFav}) => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} totalFav={totalFav}/>
-      <PhotoList photos={photos} totalFav={totalFav} setTotalFav={setTotalFav}/>
+      <PhotoList photos={photos} setTotalFav={setTotalFav}/>
     </div>
   );
 };

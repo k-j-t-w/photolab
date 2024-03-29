@@ -3,12 +3,11 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({totalFav, setTotalFav}) {
+function PhotoFavButton({setTotalFav}) {
   const [fav, setFav] = useState(false);
   const clickHandler = () => { 
-    fav && setTotalFav(prevTotalFav => prevTotalFav - 1);
     setFav(prevFav => !prevFav);
-    !fav && setTotalFav(prevTotalFav => prevTotalFav + 1);
+    setTotalFav(prevTotalFav => fav ? prevTotalFav - 1 : prevTotalFav + 1);
   }
 
 

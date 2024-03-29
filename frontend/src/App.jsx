@@ -8,14 +8,17 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
   const [totalFav, setTotalFav] = useState(0);
   const [displayModal, setDisplayModal] = useState(false)
-  const toggleModal = () => {
-    setDisplayModal((prevDisplayModal) => !prevDisplayModal)
+  const openModal = () => {
+    setDisplayModal(true)
+  }
+  const closeModal = () => {
+    setDisplayModal(false)
   }
   
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav} toggleModal={toggleModal}/>
-      {displayModal && <PhotoDetailsModal toggleModal={toggleModal}/>}
+      <HomeRoute photos={photos} topics={topics} totalFav={totalFav} setTotalFav={setTotalFav} openModal={openModal}/>
+      {displayModal && <PhotoDetailsModal closeModal={closeModal}/>}
     </div>
   );
 };

@@ -6,7 +6,8 @@ const initialState = {
   displayModal: false,
   currentPhoto: null,
   photoData: [],
-  topicData: []
+  topicData: [],
+  loadingState: true,
 };
 
 // Define actions
@@ -17,6 +18,7 @@ export const ACTIONS = {
   SELECT_PHOTO_ID: 'SELECT_PHOTO_ID',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SET_LOADING_STATE: 'SET_LOADING_STATE',
 };
 
 // Define reducer function that handles each action
@@ -54,6 +56,11 @@ function reducer(state, action) {
         ...state,
         topicData: action.payload,
       };
+    case ACTIONS.SET_LOADING_STATE:
+      return {
+        ...state,
+        loadingState: action.payload,
+      };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   };
@@ -67,14 +74,24 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch('/api/photos')
       .then(res => res.json())
-      .then((data) => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
+      .then((data) => {
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
+        dispatch({type: ACTIONS.SET_LOADING_STATE, payload: false})
+      })
+      .catch((err) => console.log(err))
    }, [])
 
    useEffect(() => {
     fetch('/api/topics')
       .then(res => res.json())
-      .then((data) => dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data}))
+      .then((data) => {
+        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
+        dispatch({type: ACTIONS.SET_LOADING_STATE, payload: false})
+      })
+      .catch((err) => console.log(err))
    }, [])
+
+
 
   const toggleFav = (id) => {
     dispatch({type: ACTIONS.TOGGLE_FAV, payload: { id }});

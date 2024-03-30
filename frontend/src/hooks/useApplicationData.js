@@ -72,7 +72,7 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch('/api/photos')
+    fetch('http://localhost:8001/api/photos')
       .then(res => res.json())
       .then((data) => {
         dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
@@ -81,17 +81,26 @@ const useApplicationData = () => {
       .catch((err) => console.log(err))
    }, [])
 
-   useEffect(() => {
-    fetch('/api/topics')
-      .then(res => res.json())
-      .then((data) => {
-        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
-        dispatch({type: ACTIONS.SET_LOADING_STATE, payload: false})
-      })
-      .catch((err) => console.log(err))
-   }, [])
+  useEffect(() => {
+  fetch('http://localhost:8001/api/topics')
+    .then(res => res.json())
+    .then((data) => {
+      dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
+      dispatch({type: ACTIONS.SET_LOADING_STATE, payload: false})
+    })
+    .catch((err) => console.log(err))
+  }, [])
 
-
+  const getPhotosByTopic = (topicId) => {
+    const url = `http://localhost:8001/api/topics/photos/${topicId}`
+      fetch(url)
+        .then(res => res.json())
+        .then((data) => {
+          dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
+          dispatch({type: ACTIONS.SET_LOADING_STATE, payload: false})
+        })
+        .catch((err) => console.log('Error fetching Photos by Topic:', err))
+  };
 
   const toggleFav = (id) => {
     dispatch({type: ACTIONS.TOGGLE_FAV, payload: { id }});
@@ -115,7 +124,8 @@ const useApplicationData = () => {
     toggleFav,
     openModal,
     closeModal,
-    selectPhotoId
+    selectPhotoId,
+    getPhotosByTopic
   };
 };
 

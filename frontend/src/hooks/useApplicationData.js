@@ -92,7 +92,8 @@ const useApplicationData = () => {
   }, [])
 
   const getPhotosByTopic = (topicId) => {
-    const url = `http://localhost:8001/api/topics/photos/${topicId}`
+    let url;
+    topicId ? url = `http://localhost:8001/api/topics/photos/${topicId}` : url = `http://localhost:8001/api/photos`
       fetch(url)
         .then(res => res.json())
         .then((data) => {

@@ -18,7 +18,7 @@ const App = () => {
     <div className="App">
       <HomeRoute photos={state.photoData} topics={state.topicData} favArr={state.favArr} openModal={openModal} selectPhotoId={selectPhotoId} toggleFav={toggleFav} getPhotosByTopic={getPhotosByTopic}/>
       {state.loadingState && <div>Loading...</div>}
-      {state.displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={state.currentPhoto} photos={state.photoData} toggleFav={toggleFav} favArr={state.favArr}/>}
+      {state.displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={state.currentPhoto} photos={state.photoData} toggleFav={toggleFav} favArr={state.favArr} openModal={openModal} selectPhotoId={selectPhotoId}/>}
     </div>
   );
 };

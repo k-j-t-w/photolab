@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, toggleFav}) => {
   let currentPhotoData = '';
@@ -16,19 +17,22 @@ const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, toggleFav}
       <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className='photo-details-modal__images'>
-      <img src={currentPhotoData.urls.full} alt="Large Modal Photo" className='photo-details-modal__image'/>
-          <div className='photo-list__user-details'>
-            <img src={currentPhotoData.user.profile} alt="Profile Photo" className='photo-list__user-profile' />
-            <div className='photo-list__user-info'>
-              {currentPhotoData.user.username}
-              <div className='photo-list__user-location'>
-                {currentPhotoData.location.city},
-                {currentPhotoData.location.country}
-              </div>
+        <div className='photo-details-modal__image-container'>
+          <PhotoFavButton photo={currentPhotoData} favArr={favArr} toggleFav={toggleFav} />
+          <img src={currentPhotoData.urls.full} alt="Large Modal Photo" className='photo-details-modal__image'/>
+        </div>
+        <div className='photo-details-modal__photographer-details'>
+          <img src={currentPhotoData.user.profile} alt="Profile Photo" className='photo-details-modal__photographer-profile' />
+          <div className='photo-details-modal__photographer-info'>
+            {currentPhotoData.user.username}
+            <div className='photo-details-modal__photographer-location'>
+              {currentPhotoData.location.city},
+              {currentPhotoData.location.country}
             </div>
           </div>
-          <div className='photo-details-modal__header'>Similar Photos</div>
-        <PhotoList photos={similarPhotos} toggleFav={toggleFav} favArr={favArr}/>
+        </div>
+        <div className='photo-details-modal__header'>Similar Photos</div>
+        <PhotoList photos={similarPhotos} toggleFav={toggleFav} favArr={favArr} modal="modal"/>
       </div>
     </div>
   )

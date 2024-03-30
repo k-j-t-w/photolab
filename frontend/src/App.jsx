@@ -31,7 +31,6 @@ const App = () => {
   
   return (
     <div className="App">
-      favArr: {favArr}
       <HomeRoute photos={photos} topics={topics} favArr={favArr} openModal={openModal} setCurrentPhoto={setCurrentPhoto} toggleFav={toggleFav}/>
       {displayModal && <PhotoDetailsModal closeModal={closeModal} currentPhoto={currentPhoto} photos={photos} toggleFav={toggleFav} favArr={favArr}/>}
     </div>

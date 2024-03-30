@@ -20,7 +20,7 @@ const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, toggleFav,
         <div className='photo-details-modal__image-container'>
           <PhotoFavButton photo={currentPhotoData} favArr={favArr} toggleFav={toggleFav} />
           <img src={currentPhotoData.urls.full} alt="Large Modal Photo" className='photo-details-modal__image'/>
-        </div>
+       
         <div className='photo-details-modal__photographer-details'>
           <img src={currentPhotoData.user.profile} alt="Profile Photo" className='photo-details-modal__photographer-profile' />
           <div className='photo-details-modal__photographer-info'>
@@ -30,6 +30,7 @@ const PhotoDetailsModal = ({closeModal, currentPhoto, photos, favArr, toggleFav,
               {currentPhotoData.location.country}
             </div>
           </div>
+        </div>
         </div>
         <div className='photo-details-modal__header'>Similar Photos</div>
         <PhotoList photos={similarPhotos} toggleFav={toggleFav} favArr={favArr} modal="modal" openModal={openModal} selectPhotoId={selectPhotoId}/>

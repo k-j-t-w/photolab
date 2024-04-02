@@ -22,3 +22,7 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+## Screenshots
+!['Photolab Home Page'](docs/photolabs-home.jpg)
+!['Photolabs Wide Modal'](docs/photoLabs-wide-modal.jpg)
+!['Photolabs Vertical Modal'](docs/photolabs-vertical-modal.jpg)

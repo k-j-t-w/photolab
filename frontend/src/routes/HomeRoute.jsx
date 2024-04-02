@@ -11,6 +11,8 @@ const HomeRoute = ({
   selectPhotoId,
   toggleFav,
   getPhotosByTopic,
+  toggleDark,
+  darkToggle,
 }) => {
   return (
     <div className="home-route">
@@ -18,6 +20,8 @@ const HomeRoute = ({
         topics={topics}
         favArr={favArr}
         getPhotosByTopic={getPhotosByTopic}
+        toggleDark={toggleDark}
+        darkToggle={darkToggle}
       />
       <PhotoList
         photos={photos}
@@ -25,6 +29,7 @@ const HomeRoute = ({
         selectPhotoId={selectPhotoId}
         favArr={favArr}
         toggleFav={toggleFav}
+        darkToggle={darkToggle}
       />
     </div>
   );

@@ -49,3 +49,12 @@
 .photo-list__user-location {
   color: #838383;
 }
+
+.dark .photo-list__item {
+  border-color: rgb(80, 80, 80);
+  background-color: #383838;
+}
+
+.dark .photo-list__user-info {
+  color: #ffffff;
+}

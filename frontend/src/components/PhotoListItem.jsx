@@ -10,6 +10,7 @@ const PhotoListItem = ({
   favArr,
   toggleFav,
   modal,
+  darkToggle
 }) => {
   const handleClick = () => {
     openModal();
@@ -18,7 +19,7 @@ const PhotoListItem = ({
   return (
     <>
       <div className="photo-list__item">
-        <PhotoFavButton photo={photo} favArr={favArr} toggleFav={toggleFav} />
+        <PhotoFavButton photo={photo} favArr={favArr} toggleFav={toggleFav} darkToggle={darkToggle} />
         <img
           src={photo.urls.regular}
           alt="Photo"

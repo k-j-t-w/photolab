@@ -13,6 +13,7 @@ const PhotoDetailsModal = ({
   toggleFav,
   openModal,
   selectPhotoId,
+  darkToggle,
 }) => {
   let currentPhotoData = "";
   if (currentPhoto) {
@@ -33,6 +34,7 @@ const PhotoDetailsModal = ({
             photo={currentPhotoData}
             favArr={favArr}
             toggleFav={toggleFav}
+            darkToggle={darkToggle}
           />
           <img
             src={currentPhotoData.urls.full}
@@ -63,6 +65,7 @@ const PhotoDetailsModal = ({
           modal="modal"
           openModal={openModal}
           selectPhotoId={selectPhotoId}
+          darkToggle={darkToggle}
         />
       </div>
     </div>

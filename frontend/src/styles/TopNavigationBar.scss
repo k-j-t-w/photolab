@@ -22,3 +22,34 @@
   cursor: pointer;
 }
 
+.dark .top-nav-bar {
+  background-color: #383838;
+}
+
+.dark .top-nav-bar__logo {
+  color: #ffffff;
+}
+
+.dark-button {
+  background-color: #a164b4;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 15px;
+  height: 30px;
+  width: 30px;
+  box-shadow: 0 2px 4px darkslategray;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.dark .dark-button {
+  background-color: #ffffff;
+  color: white;
+}
+
+.top-nav-bar__icons {
+  display: flex;
+  align-items: center;
+}

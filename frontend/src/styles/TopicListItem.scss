@@ -15,3 +15,11 @@
     color: #111;
   }
 }
+
+.dark .topic-list__item span {
+  color: #e0e0e0;
+
+  &:hover {
+    color: #FFFFFF;
+  }
+}

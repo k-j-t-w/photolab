@@ -12,10 +12,11 @@ const App = () => {
     closeModal,
     selectPhotoId,
     getPhotosByTopic,
+    toggleDark,
   } = useApplicationData();
 
   return (
-    <div className="App">
+    <div className={`App ${state.darkToggle ? 'dark' : ''}`}>
       <HomeRoute
         photos={state.photoData}
         topics={state.topicData}
@@ -24,6 +25,8 @@ const App = () => {
         selectPhotoId={selectPhotoId}
         toggleFav={toggleFav}
         getPhotosByTopic={getPhotosByTopic}
+        toggleDark={toggleDark}
+        darkToggle={state.darkToggle}
       />
       {state.loadingState && <div>Loading...</div>}
       {state.displayModal && (
@@ -35,6 +38,7 @@ const App = () => {
           favArr={state.favArr}
           openModal={openModal}
           selectPhotoId={selectPhotoId}
+          darkToggle={state.darkToggle}
         />
       )}
     </div>

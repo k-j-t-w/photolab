@@ -8,6 +8,7 @@ const initialState = {
   photoData: [],
   topicData: [],
   loadingState: true,
+  darkToggle: false,
 };
 
 // Define actions
@@ -19,6 +20,7 @@ export const ACTIONS = {
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
   SET_LOADING_STATE: "SET_LOADING_STATE",
+  TOGGLE_DARK: "TOGGLE_DARK",
 };
 
 // Define reducer function that handles each action
@@ -60,6 +62,11 @@ function reducer(state, action) {
       return {
         ...state,
         loadingState: action.payload,
+      };
+    case ACTIONS.TOGGLE_DARK:
+      return {
+        ...state,
+        darkToggle: action.payload,
       };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -108,6 +115,10 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.TOGGLE_FAV, payload: { id } });
   };
 
+  const toggleDark = () => {
+    dispatch({ type: ACTIONS.TOGGLE_DARK, payload: !state.darkToggle });
+  };
+
   const openModal = () => {
     dispatch({ type: ACTIONS.OPEN_MODAL });
   };
@@ -128,6 +139,7 @@ const useApplicationData = () => {
     closeModal,
     selectPhotoId,
     getPhotosByTopic,
+    toggleDark,
   };
 };
 

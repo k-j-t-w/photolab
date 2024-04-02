@@ -88,3 +88,24 @@
   height: 100%;
   margin-top: 8px; /* Adjust margin as needed */
 }
+
+.dark .photo-details-modal {
+  background-color: rgb(49, 49, 49);
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+}
+
+.dark .photo-details-modal__header {
+  color: #f1f1f1;
+  border-bottom: 1px solid #000000;
+}
+
+.dark .photo-details-modal__close-button {
+  background-color: rgb(49, 49, 49);
+  color: rgb(255, 255, 255);
+}
+
+.dark .photo-details-modal__photographer-details {
+  display: flex;
+  font-size: 16px;
+  color:#ffffff;
+}

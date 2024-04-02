@@ -10,6 +10,7 @@ const PhotoList = ({
   favArr,
   toggleFav,
   modal,
+  darkToggle
 }) => {
   return (
     <ul className="photo-list" id={modal}>
@@ -22,6 +23,7 @@ const PhotoList = ({
           favArr={favArr}
           toggleFav={toggleFav}
           modal={modal}
+          darkToggle={darkToggle}
         />
       ))}
     </ul>
